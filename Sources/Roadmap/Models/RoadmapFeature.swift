@@ -7,11 +7,12 @@
 
 import Foundation
 
-public struct RoadmapFeature: Codable, Identifiable {
+public struct RoadmapFeature: Codable, Identifiable, Equatable {
     public let id: String
     public let title: String?
     public var status: String? = nil
     public var votes: Int? = nil
+    public var url: URL? = nil
     private var description : String? = nil
     private var localizedTitle: [LocalizedItem]? = nil
     private var localizedStatus: [LocalizedItem]? = nil
@@ -53,7 +54,7 @@ public struct RoadmapFeature: Codable, Identifiable {
     }
 }
 
-struct LocalizedItem: Codable {
+struct LocalizedItem: Codable, Equatable {
     let language: String
     let value: String
 }
